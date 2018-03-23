@@ -256,6 +256,8 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
       />
     ));
 
+    const containerStyle = this.props.containerStyle ? this.props.containerStyle : {};
+
     return (
       <TouchableWithoutFeedback
         onPress={this.focus}
@@ -272,36 +274,36 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
             }
             {...this.props.scrollViewProps}
           >
-            <View style={styles.tagInputContainer}>
-              {tags}
-              <View style={[
-                styles.textInputContainer,
-                { width: this.state.inputWidth },
-              ]}>
-                <TextInput
-                  ref={this.tagInputRef}
-                  blurOnSubmit={false}
-                  onKeyPress={this.onKeyPress}
-                  value={this.props.text}
-                  style={[styles.textInput, {
-                    width: this.state.inputWidth,
-                    color: this.props.inputColor,
-                  }]}
-                  onBlur={Platform.OS === "ios" ? this.onBlur : undefined}
-                  onChangeText={this.props.onChangeText}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  placeholder="Start typing"
-                  returnKeyType="done"
-                  keyboardType="default"
-                  underlineColorAndroid="rgba(0,0,0,0)"
-                  {...this.props.inputProps}
-                />
-              </View>
+            <View style={[styles.tagInputContainer, containerStyle]}>
+            {tags}
+            <View style={[
+              styles.textInputContainer,
+              { width: this.state.inputWidth },
+            ]}>
+              <TextInput
+                ref={this.tagInputRef}
+                blurOnSubmit={false}
+                onKeyPress={this.onKeyPress}
+                value={this.props.text}
+                style={[styles.textInput, {
+                  width: this.state.inputWidth,
+                  color: this.props.inputColor,
+                }]}
+                onBlur={Platform.OS === "ios" ? this.onBlur : undefined}
+                onChangeText={this.props.onChangeText}
+                autoCapitalize="none"
+                autoCorrect={false}
+                placeholder="Start typing"
+                returnKeyType="done"
+                keyboardType="default"
+                underlineColorAndroid="rgba(0,0,0,0)"
+                {...this.props.inputProps}
+              />
             </View>
+          </View>
           </ScrollView>
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback >
     )
   }
 
