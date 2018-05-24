@@ -442,6 +442,7 @@ const styles = StyleSheet.create({
   },
   tagInputContainer: {
     flex: 1,
+    alignItems:'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
@@ -457,10 +458,10 @@ const styles = StyleSheet.create({
   },
   tag: {
     justifyContent: 'center',
-    marginTop: 6,
+    marginTop: 3,
     marginRight: 3,
-    padding: 8,
-    height: 24,
+    padding: 3,
+    height: 30,
     borderRadius: 2,
   },
   tagText: {
