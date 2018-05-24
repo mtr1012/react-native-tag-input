@@ -458,7 +458,6 @@ const styles = StyleSheet.create({
   },
   tag: {
     justifyContent: 'center',
-    marginTop: 3,
     marginRight: 3,
     padding: 3,
     height: 30,
