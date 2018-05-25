@@ -208,7 +208,10 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
   }
 
   onKeyPress = (event: { nativeEvent: { key: string } }) => {
-    if (this.props.text !== '' || event.nativeEvent.key !== 'Backspace') {
+    if (this.props.text !== '' || event.nativeEvent.key !== 'Backspace' || (Platform.OS === 'android' && this.lastText !== '')) {
+      if (Platform.OS === 'android') {
+        this.lastText = this.props.text;
+      }
       return;
     }
     const tags = [...this.props.value];
@@ -216,6 +219,9 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
     this.props.onChange(tags);
     this.scrollToEnd();
     this.focus();
+    if (Platform.OS === 'android') {
+      this.lastText = this.props.text;
+    }
   }
 
   focus = () => {
