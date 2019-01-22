@@ -215,7 +215,7 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
       return;
     }
     const tags = [...this.props.value];
-    tags.pop();
+
     this.props.onChange(tags);
     this.scrollToEnd();
     this.focus();
@@ -453,14 +453,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   textInput: {
-    height: 36,
     fontSize: 16,
-    flex: .6,
     marginBottom: 6,
     padding: 0,
   },
   textInputContainer: {
-    height: 36,
   },
   tag: {
     justifyContent: 'center',
